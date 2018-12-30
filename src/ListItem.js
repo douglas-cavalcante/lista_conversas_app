@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet, Alert, Text, TouchableHighlight } from "react-native";
+import { View, Image, StyleSheet, Text, TouchableHighlight } from "react-native";
 
 
 export default class ListItem extends React.Component {
@@ -12,16 +12,9 @@ export default class ListItem extends React.Component {
 
   }
 
-
-  click = () => {
-    Alert.alert("Conversando com " + this.props.data.name);
-  }
-
-
   render() {
     return (
-
-      <TouchableHighlight onPress={this.click} underlayColor={"#CCCCCC"}>
+      <TouchableHighlight onPress={this.props.onPress} underlayColor={"#CCCCCC"}>
         <View style={styles.item}>
           <Image source={{ uri: this.props.data.avatar }} style={styles.img} />
           <View style={styles.info}>
@@ -30,11 +23,9 @@ export default class ListItem extends React.Component {
           </View>
         </View>
       </TouchableHighlight>
-
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   item: {
